@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Download Wheat PDFs</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f9f6f1;
+      padding: 40px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .gallery {
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      
+    }
+
+    .card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      
+    }
+
+    .download-btn {
+      background-color: #d4a373;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      
+    }
+
+    /* Popup Styling */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+    }
+
+    .popup {
+      background: #fff;
+      width: 350px;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+
+    }
+    @media(max-width:480px){
+      .popup{
+        width: 90%;
+        padding: 20px;
+      }
+      .popup-overlay{
+        padding: 10px;
+
+      }
+
+    }
+
+    .popup h2 {
+      margin-bottom: 20px;
+    }
+
+    .plans {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .plans li {
+      margin-bottom: 10px;
+    }
+
+    .popup button {
+      margin-top: 10px;
+      background-color: #d4a373;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+    }
+
+    .popup button:hover {
+      background-color: #b17d4a;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Get Access to our book</h1>
+
+<div class="gallery">
+  <!-- Replace these with your actual PDF names and paths -->
+  <div class="card">
+    <h3>Lecture 1</h3>
+    <button class="download-btn" onclick="showPopup('pdf/Chapter 1. Nature and Scope of Business 01_25.pdf')">Read</button>
+  </div>
+  <div class="card">
+    <h3>Lecture 2</h3>
+    <button class="download-btn" onclick="showPopup('pdf/Lecture 2_Financial Management.pdf')">Read</button>
+  </div>
+  <div class="card">
+    <h3>Lecture 3</h3>
+    <button class="download-btn" onclick="showPopup('pdf/CHAPTER 3. FORMS OF BUSINESS final slides 01_25.pdf')">Read</button>
+  </div>
+  <div class="card">
+    <h3>lecture - 4</h3>
+    <button class="download-btn" onclick="showPopup('pdf/Chapter 4. Creativity and Entrepreneurship.pdf')">Read</button>
+  </div>
+  <div class="card">
+    <h3>lecture - 5</h3>
+    <button class="download-btn" onclick="showPopup('pdf/Chapter 5. Management and Organizations .pdf')">Read</button>
+  </div>
+  <div class="card">
+    <h3>lecture - 6</h3>
+    <button class="download-btn" onclick="showPopup('pdf/Lecture 6_International Business.pdf')">Read</button>
+  </div>
+  <div class="card">
+    <h3>lecture - 7</h3>
+    <button class="download-btn" onclick="showPopup('pdf/CHAPTER 7. OPERATIONS MANAGEMENT .pdf')">Read</button>
+  </div>
+  <div class="card">
+    <h3>lecture - 9</h3>
+    <button class="download-btn" onclick="showPopup('pdf/Lecture 8_Business Risk and Insurance.pdf')">Read</button>
+  </div>
+</div>
+
+<!-- Subscription Popup -->
+<div class="popup-overlay" id="popup">
+  <div class="popup">
+    <h2>Subscribe to Access</h2>
+    <ul class="plans">
+      <li>📅 Weekly - GH¢ 10</li>
+      <li>🗓 Monthly - GH¢ 40</li>
+      <li>📆 Yearly - GH¢ 400</li>
+      <li>🎁 <strong>Free Access</strong> - No Payment Needed for 30days</li>
+    </ul>
+    <button onclick="subscribe('free')">Subscribe for Free access 30days</button>
+    <button onclick="subscribe('paid')">Choose Paid Plan</button>
+  </div>
+</div>
+
+<script>
+  let selectedPDF = '';
+
+  function showPopup(pdfPath) {
+    selectedPDF = pdfPath;
+    document.getElementById("popup").style.display = "block";
+  }
+
+  function subscribe(option) {
+    document.getElementById("popup").style.display = "none";
+
+    if (option === 'free') {
+      window.location.href = selectedPDF;
+    } else {
+      alert("send to my momo number 📞0540425397");
+      // Replace with actual payment link
+      // window.location.href = "https://your-payment-site.com";
+    }
+  }
+</script>
+
+</body>
+</html>
